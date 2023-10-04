@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="datos.Ambiente" table="ambiente">
+<id column="idAmbiente" name="nroDeAmbiente">
+<generator class="identity"/>
+</id>
+<property name="ambiente" column="ambiente" type="string"/>
+<joined-subclass name="datos.Salon" table="salon">
+<key column="idSalon" />
+<property column="cantidadDeMesas" name="cantidadDeMesas" type="int"/>
+<property column="cantidadDeSillas" name="cantidadDeSillas" type="int"/>
+<property column="capacidad" name="capacidad" type="int"/>
+</joined-subclass>
+<joined-subclass name="datos.Habitacion" table="habitacion">
+<key column="idHabitacion" />
+<property column="plazas" name="plazas" type="int"/>
+</joined-subclass>
+</class>
+</hibernate-mapping>
